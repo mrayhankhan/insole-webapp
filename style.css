@@ -1,0 +1,98 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #e8f4f8 0%, #d6e9f0 100%); /* Soft gradient background */
+    color: #333;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    /* Mobile optimizations */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin: 10px 0;
+    text-align: center;
+}
+
+#controls {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+#connectButton {
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    /* Mobile touch optimization */
+    min-height: 44px;
+    min-width: 44px;
+}
+
+#connectButton:hover {
+    background-color: #45a049;
+}
+
+#connectButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#status {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#heatmap-container {
+    position: relative; /* This is key for layering */
+    width: min(300px, 90vw); /* Responsive width for mobile */
+    height: min(600px, 70vh); /* Responsive height for mobile */
+    margin: 0 auto; /* Center the foot image */
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, rgba(240,240,240,0.6) 70%, transparent 100%);
+    border-radius: 50px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+    #heatmap-container {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 200px);
+        padding: 15px;
+    }
+}
+
+#foot-image {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    border-radius: 20px;
+}
+
+#heatmap-canvas {
+    position: absolute;
+    top: 20px; /* Account for container padding */
+    left: 20px; /* Account for container padding */
+    width: calc(100% - 40px); /* Subtract padding */
+    height: calc(100% - 40px); /* Subtract padding */
+    opacity: 0.85; /* Slightly more transparent for better blending */
+    border-radius: 20px;
+    filter: blur(1px); /* Slight blur for smoother edges */
+}

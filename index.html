@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Smart Insole Heatmap</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Mobile optimizations -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#e8f4f8">
+</head>
+</head>
+<body>
+    <h1>Smart Insole Live Heatmap</h1>
+    <div id="controls">
+        <button id="connectButton">Connect to Insole</button>
+        <p id="status">Status: Disconnected</p>
+        
+        <!-- Compact Simulation Dropdown -->
+        <details id="simulation-dropdown" style="margin-top: 15px;">
+            <summary style="cursor: pointer; padding: 8px 12px; background-color: rgba(200,200,200,0.3); border-radius: 5px; font-size: 12px; color: #666;">
+                🔧 Developer Mode
+            </summary>
+            <div id="simulation-controls" style="margin-top: 10px; padding: 10px; background-color: rgba(255,255,255,0.9); border-radius: 8px; border: 1px solid #ddd; font-size: 12px;">
+                <div style="display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; margin-bottom: 8px;">
+                    <button id="simulateWalking" style="padding: 4px 8px; font-size: 11px;">Walking</button>
+                    <button id="simulateStanding" style="padding: 4px 8px; font-size: 11px;">Standing</button>
+                    <button id="simulateRunning" style="padding: 4px 8px; font-size: 11px;">Running</button>
+                    <button id="clearHeatmap" style="padding: 4px 8px; font-size: 11px;">Clear</button>
+                </div>
+                <div style="display: flex; gap: 5px; flex-wrap: wrap; justify-content: center;">
+                    <button id="testHeel" style="padding: 4px 8px; font-size: 11px;">Heel</button>
+                    <button id="testArch" style="padding: 4px 8px; font-size: 11px;">Arch</button>
+                    <button id="testBall" style="padding: 4px 8px; font-size: 11px;">Ball</button>
+                    <button id="testToe" style="padding: 4px 8px; font-size: 11px;">Toe</button>
+                </div>
+            </div>
+        </details>
+    </div>
+    <div id="heatmap-container">
+        <img src="foot-outline.png" id="foot-image" alt="Foot Outline"/>
+        <canvas id="heatmap-canvas"></canvas>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
